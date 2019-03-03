@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAim))]
+[RequireComponent(typeof(PlayerCurrency))]
 public class PlayerInputs : MonoBehaviour {
 
     PlayerMovement move;
