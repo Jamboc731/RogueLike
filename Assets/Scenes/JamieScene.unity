@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148706495}
   - component: {fileID: 148706494}
+  - component: {fileID: 148706496}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -197,6 +198,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148706496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148706493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3ab144148faee4fa526c2982810096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldHalfExtents: 20
+  cub: {fileID: 1811310275091102, guid: d95a4a5cb2ae95a42bc8f70190934582, type: 2}
+  numberOfRooms: 50
 --- !u!1001 &423749531
 Prefab:
   m_ObjectHideFlags: 0
@@ -433,9 +448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c86fe21cbc3e545ae41ea2201b13b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 200
-  damage: 5
-  heal: 0
 --- !u!114 &826772132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,8 +693,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1509429001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.350086, y: 10.527179, z: -27.40063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
