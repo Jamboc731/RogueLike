@@ -5,8 +5,10 @@ using UnityEngine;
 public class Shots : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 5;
     [SerializeField] float lifetime = 5;
+    [SerializeField] float scaleAtEndOfLife = 1;
+    [SerializeField] float damage = 1;
 
     public void Move(Vector2 dir)
     {
@@ -16,6 +18,11 @@ public class Shots : MonoBehaviour
     public float GetLifetime ()
     {
         return lifetime;
+    }
+
+    public void ChangeScale(float newScale)
+    {
+        
     }
 
 }
