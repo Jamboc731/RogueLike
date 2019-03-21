@@ -17,4 +17,16 @@ public class BasicShot : Shots
         Move (dir);
     }
 
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        Destroy (gameObject);
+        //Debug.Log ("hit");
+        //Debug.Log (collision.collider.gameObject.name);
+        if (collision.collider.gameObject.CompareTag("Enemy"))
+        {
+            //Debug.Log ("tagged enemy");
+            collision.collider.gameObject.GetComponent<Enemy> ().TakeDamage (damage);
+        }
+    }
+
 }

@@ -1,19 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
 
-    // Use this for initialization
-    void Start ()
-    {
+    [SerializeField] EnemySO stats;
+    float moveSpeed;
+    int damage;
+    SpriteRenderer spRend;
 
+    private void Start ()
+    {
+        Initialise ();
     }
 
-    // Update is called once per frame
-    void Update ()
+    void Initialise ()
+    {
+        gameObject.name = stats.name;
+        moveSpeed = stats.moveSpeed;
+        damage = stats.damage;
+        spRend = GetComponent<SpriteRenderer> ();
+        spRend.sprite = stats.sprite;
+        gameObject.AddComponent<BoxCollider2D> ();
+        gameObject.tag = "Enemy";
+        InitHealth ();
+    }
+
+    public override void InitHealth ()
     {
 
+        health = new Health (stats.maxHealth);
+        
     }
+
+    public override void Die ()
+    {
+        Debug.Log ("Dedded");
+        gameObject.SetActive (false);
+    }
+
 }

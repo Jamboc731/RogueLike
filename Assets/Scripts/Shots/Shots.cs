@@ -5,10 +5,10 @@ using UnityEngine;
 public class Shots : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 5;
-    [SerializeField] float lifetime = 5;
-    [SerializeField] float scaleAtEndOfLife = 1;
-    [SerializeField] float damage = 1;
+    [SerializeField] protected float moveSpeed = 5;
+    [SerializeField] protected float lifetime = 5;
+    [SerializeField] protected float scaleAtEndOfLife = 1;
+    [SerializeField] protected int damage = 1;
 
     public void Move(Vector2 dir)
     {

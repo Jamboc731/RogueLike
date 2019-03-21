@@ -6,12 +6,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, IDamageable
 {
 
-    Health health;
-
-    private void Start ()
-    {
-        InitHealth ();
-    }
+    protected Health health;
 
     public virtual void InitHealth ()
     {
@@ -25,6 +20,7 @@ public class Character : MonoBehaviour, IDamageable
         {
             Die ();
         }
+        Debug.Log (string.Format ("Took damage: {0}, new health is: {1}", value, health.GetCurrent()));
     }
 
     public virtual void Die ()
