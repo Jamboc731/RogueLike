@@ -10,3 +10,17 @@ public interface IPickupable
     void Destroy ();
 
 }
+
+public interface IDamageable
+{
+
+    void TakeDamage (int value);
+
+}
+
+public interface IHealable
+{
+
+    void HealDamage (int value);
+
+}

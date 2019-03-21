@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class Health : MonoBehaviour
+{
 
     int maxHealth;
     int currentHealth;
+
+    public Health(int _max)
+    {
+        maxHealth = _max;
+        currentHealth = maxHealth;
+    }
 
     public int GetMax()
     {
@@ -25,8 +32,6 @@ public class Health : MonoBehaviour {
     public void TakeDamage(int value)
     {
         currentHealth -= value;
-        if (currentHealth <= 0)
-            Die();
     }
 
     public void HealDamage(int value)
@@ -34,11 +39,6 @@ public class Health : MonoBehaviour {
         currentHealth += value;
         if (currentHealth >= maxHealth)
             MaxHealth();
-    }
-
-    protected virtual void Die()
-    {
-        Debug.Log(string.Format("{0} has died.", gameObject.name));
     }
 
 }
