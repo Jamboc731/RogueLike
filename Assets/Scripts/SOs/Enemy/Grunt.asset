@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Grunt
   m_EditorClassIdentifier: 
   name: Grunt
-  maxHealth: 12
+  maxHealth: 2
   moveSpeed: 2
   damage: 1
   sprite: {fileID: 21300000, guid: 0366d10ab27dcd44593b1a2cfd76e7a7, type: 3}

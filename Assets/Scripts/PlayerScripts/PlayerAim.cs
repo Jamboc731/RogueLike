@@ -14,8 +14,14 @@ public class PlayerAim : MonoBehaviour {
     [SerializeField] float fireRate;
     //variable to stop the player firing too fast
     float tick = 0;
+    bool cooling = false;
 
-	public void Shoot (Vector2 dir)
+    private void Update ()
+    {
+        Debug.Log (tick);
+    }
+
+    public void Shoot (Vector2 dir)
     {
         //if tick is zero then the player can shoot
         if(tick == 0)
@@ -41,8 +47,9 @@ public class PlayerAim : MonoBehaviour {
     {
         //set firing to true so StartFire() isnt called again
         firing = true;
-        while (true)
+        while (firing)
         {
+            //Debug.Log ("working");
             //increase tick by the amount necessary to make it so that it fires the correct amount of bullets / second
             tick += Time.deltaTime / (1 / fireRate);
             //if tick is 1 then set it back to 0 so that the player can fire again
@@ -59,8 +66,22 @@ public class PlayerAim : MonoBehaviour {
     {
         //if the player stops firing then stop the firing coroutine, set tick back to 0 so that the player fires straight away next time and set firing to false so the StartFire() can be called again
         StopCoroutine (Firing ());
-        tick = 0;
+        StartCoroutine (Cooldown());
         firing = false;
+    }
+
+    public bool GetCooling ()
+    {
+        return cooling;
+    }
+
+    IEnumerator Cooldown ()
+    {
+        cooling = true;
+        Debug.Log ("cooling");
+        yield return new WaitForSeconds (1 - tick);
+        tick = 0;
+        cooling = false;
     }
 
 }

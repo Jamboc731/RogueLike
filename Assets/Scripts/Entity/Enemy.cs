@@ -41,4 +41,13 @@ public class Enemy : Character
         gameObject.SetActive (false);
     }
 
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        GameObject other = collision.collider.gameObject;
+        if (other.CompareTag ("Player"))
+        {
+            other.GetComponent<PlayerHealth> ().TakeDamage (1);
+        }
+    }
+
 }

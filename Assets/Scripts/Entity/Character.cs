@@ -8,6 +8,11 @@ public class Character : MonoBehaviour, IDamageable
 
     protected Health health;
 
+    private void Start ()
+    {
+        InitHealth ();
+    }
+
     public virtual void InitHealth ()
     {
         health = new Health (10);
@@ -20,7 +25,7 @@ public class Character : MonoBehaviour, IDamageable
         {
             Die ();
         }
-        Debug.Log (string.Format ("Took damage: {0}, new health is: {1}", value, health.GetCurrent()));
+        Debug.Log (string.Format ("{2} took damage: {0}, new health is: {1}", value, health.GetCurrent(), gameObject.name));
     }
 
     public virtual void Die ()

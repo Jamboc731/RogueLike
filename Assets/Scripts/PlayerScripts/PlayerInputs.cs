@@ -16,6 +16,7 @@ public class PlayerInputs : MonoBehaviour {
     float xAim;
     float yAim;
     [SerializeField] float weight = 1;
+    bool stoppedFiring = false;
 
     private void Start()
     {
@@ -53,6 +54,7 @@ public class PlayerInputs : MonoBehaviour {
 
         if (xAim != 0 || yAim != 0)
         {
+            stoppedFiring = true;
             aimDirection.x = xAim;
             aimDirection.y = yAim;
             aimDirection = aimDirection.normalized;
@@ -60,6 +62,13 @@ public class PlayerInputs : MonoBehaviour {
             aimDirection += move.GetRBVelocity () * Time.deltaTime * weight;
             aim.Shoot (aimDirection);
         }
+        if (xAim == 0 && yAim == 0)
+            if (stoppedFiring)
+                if (aim.GetCooling())
+                {
+                    aim.EndFire ();
+                    stoppedFiring = false;
+                }
         #endregion
     }
 

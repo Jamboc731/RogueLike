@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ThiccBoi
   m_EditorClassIdentifier: 
   name: Thicc Boi
-  maxHealth: 20
+  maxHealth: 5
   moveSpeed: 1
   damage: 2
   sprite: {fileID: 21300000, guid: 6868ff622e7ca63469e0a5930d745625, type: 3}
